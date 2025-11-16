@@ -2,7 +2,7 @@
 package game;
 
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import java.awt.Dimension;
 
 public class GameWindow extends JFrame {
     public GameWindow() {
@@ -13,14 +13,15 @@ public class GameWindow extends JFrame {
         GamePanel panel = new GamePanel();
         add(panel);
 
-        pack();                      // sizes the frame to the panel’s preferred size
-        setLocationRelativeTo(null); // center on screen
+        pack();
+        setLocationRelativeTo(null);
         setVisible(true);
 
-        panel.requestFocusInWindow(); // ready for input later
+        panel.requestFocusInWindow();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(GameWindow::new);
+    @Override
+    public Dimension getPreferredSize() {
+        return super.getPreferredSize();
     }
 }
