@@ -23,20 +23,27 @@ public class GamePanel extends JPanel implements Runnable {
     final int screenWidth = tileSize * gridWidth; // 768
     final int screenHeight = tileSize * gridHeight; // 576
 
+    KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
+
 
     public GamePanel() {
        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
        this.setBackground(Color.black);   
        this.setDoubleBuffered(true);
+       this.addKeyListener(keyHandler);
+       this.setFocusable(true);
     }
 
 
+    //Start the game
     public void startGameThread() {
         gameThread = new Thread(this);
+        //Start the thread
         gameThread.start();
     }
 
+    //GameLoop
     @Override
     public void run() {
         while (gameThread != null) {
