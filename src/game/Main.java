@@ -11,7 +11,6 @@ public class Main {
         // SwingUtilities.invokeLater ensures GUI code runs on the Event Dispatch Thread (EDT)
         // This is required for thread safety in Swing applications
         SwingUtilities.invokeLater(() -> {
-            // Create and show the game window
             new GameWindow();
         });
     }
