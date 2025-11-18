@@ -92,31 +92,44 @@ public class Player extends Entity {
         }
     }
 
-    public void update() {
-        if(keyH.upPressed){
-            direction = "up";
-            spriteNum++;
-            y -= speed;
-        }
-        if(keyH.downPressed){
-            direction = "down";
-            spriteNum++;
-            y += speed;
-        }
-        if(keyH.leftPressed){
-            direction = "left";
-            spriteNum++;
-            x -= speed;
-        }
-        if(keyH.rightPressed){
-            direction = "right";
-            spriteNum++;
-            x += speed;
-        }
-        if(spriteNum > 3){
-            spriteNum = 0;
-        }
+   public void update() {
+    String prevDirection = direction;
+    boolean isMoving = false;
+
+    if (keyH.upPressed) {
+        direction = "up";
+        y -= speed;
+        isMoving = true;
+    } else if (keyH.downPressed) {
+        direction = "down";
+        y += speed;
+        isMoving = true;
+    } else if (keyH.leftPressed) {
+        direction = "left";
+        x -= speed;
+        isMoving = true;
+    } else if (keyH.rightPressed) {
+        direction = "right";
+        x += speed;
+        isMoving = true;
     }
+
+    if (!direction.equals(prevDirection)) {
+        spriteNum = 0;
+        spriteCounter = 0;
+    }
+
+    if (isMoving) {
+        spriteCounter++;
+        if (spriteCounter > 10) {
+            spriteNum = (spriteNum + 1) % 4;  // Cycles through 0-3
+            spriteCounter = 0;
+        }
+    } else {
+        spriteNum = 0;
+        spriteCounter = 0;
+    }
+}
     
     public void draw(Graphics2D g2) {
       BufferedImage image = null;
