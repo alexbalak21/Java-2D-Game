@@ -2,6 +2,7 @@ package game.entity;
 
 import java.awt.image.BufferedImage;
 
+//Entity
 public class Entity {
 
     public int x, y;
