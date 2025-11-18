@@ -13,23 +13,12 @@ public class Player extends Entity {
 
     GamePanel gp;
     KeyHandler keyH;
-    
-    public Player (GamePanel gp, KeyHandler keyH) {
-        this.gp = gp;
-        this.keyH = keyH;
-        
-        setDefaultValues();
-        getPlayerImage();
-    }
 
-    void setDefaultValues() {
-       x = 100;
-       y = 100;
-       speed = 4;
-       direction = "down";
-    }
+    // Track movement progress
+    private boolean isMoving = false;
+    private int pixelsMoved = 0;
 
-    public void getPlayerImage() {
+        public void getPlayerImage() {
         try {
             // Try to load the sprite sheet using different methods
             java.net.URL imgUrl = getClass().getResource("/game/res/player/player_sheet.png");
@@ -47,7 +36,6 @@ public class Player extends Entity {
             BufferedImage spriteSheet = ImageIO.read(imgUrl);
 
             final int columns = 4;
-            final int rows = 4;
             
             // Use original tile size (16x16 pixels)
             int frameSize = gp.originalTileSize; // Original tile size
@@ -92,62 +80,82 @@ public class Player extends Entity {
         }
     }
 
-   public void update() {
-    String prevDirection = direction;
-    boolean isMoving = false;
+    public Player(GamePanel gp, KeyHandler keyH) {
+        this.gp = gp;
+        this.keyH = keyH;
 
-    if (keyH.upPressed) {
-        direction = "up";
-        y -= speed;
-        isMoving = true;
-    } else if (keyH.downPressed) {
+        setDefaultValues();
+        getPlayerImage();
+    }
+
+    void setDefaultValues() {
+        x = 100;
+        y = 100;
+        speed = 2;
         direction = "down";
-        y += speed;
-        isMoving = true;
-    } else if (keyH.leftPressed) {
-        direction = "left";
-        x -= speed;
-        isMoving = true;
-    } else if (keyH.rightPressed) {
-        direction = "right";
-        x += speed;
-        isMoving = true;
     }
 
-    if (!direction.equals(prevDirection)) {
-        spriteNum = 0;
-        spriteCounter = 0;
-    }
-
-    if (isMoving) {
-        spriteCounter++;
-        if (spriteCounter > 10) {
-            spriteNum = (spriteNum + 1) % 4;  // Cycles through 0-3
-            spriteCounter = 0;
+    public void update() {
+        // If not already moving, check for new input
+        if (!isMoving) {
+            if (keyH.upPressed) {
+                direction = "up";
+                isMoving = true;
+                pixelsMoved = 0;
+                spriteNum = 1; // show first step frame immediately
+            } else if (keyH.downPressed) {
+                direction = "down";
+                isMoving = true;
+                pixelsMoved = 0;
+                spriteNum = 1;
+            } else if (keyH.leftPressed) {
+                direction = "left";
+                isMoving = true;
+                pixelsMoved = 0;
+                spriteNum = 1;
+            } else if (keyH.rightPressed) {
+                direction = "right";
+                isMoving = true;
+                pixelsMoved = 0;
+                spriteNum = 1;
+            }
         }
-    } else {
-        spriteNum = 0;
-        spriteCounter = 0;
-    }
-}
-    
-    public void draw(Graphics2D g2) {
-      BufferedImage image = null;
-      switch(direction){
-        case "up":
-          image = up[spriteNum];
-          break;
-        case "down":
-          image = down[spriteNum];
-          break;
-        case "left":
-          image = left[spriteNum];
-          break;
-        case "right":
-          image = right[spriteNum];
-          break;
-      }
 
-      g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        // If currently moving, advance position
+        if (isMoving) {
+            switch (direction) {
+                case "up":    y -= speed; break;
+                case "down":  y += speed; break;
+                case "left":  x -= speed; break;
+                case "right": x += speed; break;
+            }
+
+            pixelsMoved += speed;
+
+            // Animate while moving
+            spriteCounter++;
+            if (spriteCounter > 8) { // adjust for animation speed
+                spriteNum = (spriteNum + 1) % 4;
+                spriteCounter = 0;
+            }
+
+            // Stop when one tile is completed
+            if (pixelsMoved >= gp.tileSize) {
+                isMoving = false;
+                spriteNum = 0; // back to idle frame
+                spriteCounter = 0;
+            }
+        }
+    }
+
+    public void draw(Graphics2D g2) {
+        BufferedImage image = null;
+        switch (direction) {
+            case "up":    image = up[spriteNum]; break;
+            case "down":  image = down[spriteNum]; break;
+            case "left":  image = left[spriteNum]; break;
+            case "right": image = right[spriteNum]; break;
+        }
+        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
 }
