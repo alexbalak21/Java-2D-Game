@@ -9,13 +9,14 @@ import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import game.entity.Player;
 
 
 public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16;
     final int scale = 3;
 
-    final int tileSize = originalTileSize * scale; // 48x48
+    public final int tileSize = originalTileSize * scale; // 48x48
 
     final int gridWidth = 16;
     final int gridHeight = 12;
@@ -26,10 +27,9 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyHandler = new KeyHandler();
     Thread gameThread;
 
-    //Player Position
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
+    Player player = new Player(this, keyHandler);
+
+    //https://youtu.be/wT9uNGzMEM4?si=Um1deZEkYPkZAq9I&t=188
 
 
     public GamePanel() {
@@ -38,9 +38,10 @@ public class GamePanel extends JPanel implements Runnable {
        this.setDoubleBuffered(true);
        this.addKeyListener(keyHandler);
        this.setFocusable(true);
-
-       //NEED TO IMPLEMENT MOVEMENT
     }
+
+
+
 
 
     //Start the game
@@ -70,31 +71,14 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        if(keyHandler.upPressed) {
-            playerY -= playerSpeed;
-        }
-        if(keyHandler.downPressed) {
-            playerY += playerSpeed;
-        }
-        if(keyHandler.leftPressed) {
-            playerX -= playerSpeed;
-        }
-        if(keyHandler.rightPressed) {
-            playerX += playerSpeed;
-        }
-
-        //https://youtu.be/VpH33Uw-_0E?si=gTLZzmlSV9pGxYFC&t=1079
-        
+        player.update();  
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
-
-        g2.setColor(Color.white);
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
-
+        player.draw(g2);
         g2.dispose();
     }
 }
