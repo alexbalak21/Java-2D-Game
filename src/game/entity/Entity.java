@@ -13,6 +13,6 @@ public class Entity {
     public BufferedImage[] right;
 
     public String direction;
-    public int spriteCounter;
+    public int spriteCounter = 0;
     public int spriteNum = 0;
 }

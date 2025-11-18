@@ -45,33 +45,36 @@ public class Player extends Entity {
             }
             
             BufferedImage spriteSheet = ImageIO.read(imgUrl);
+
+            final int columns = 4;
+            final int rows = 4;
             
             // Use original tile size (16x16 pixels)
             int frameSize = gp.originalTileSize; // Original tile size
             
             // Initialize arrays if they're null
-            if (up == null) up = new BufferedImage[3];
-            if (down == null) down = new BufferedImage[3];
-            if (left == null) left = new BufferedImage[3];
-            if (right == null) right = new BufferedImage[3];
+            if (up == null) up = new BufferedImage[columns];
+            if (down == null) down = new BufferedImage[columns];
+            if (left == null) left = new BufferedImage[columns];
+            if (right == null) right = new BufferedImage[columns];
             
             // Extract up frames (first row)
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < columns; i++) {
                 up[i] = spriteSheet.getSubimage(i * frameSize, 0, frameSize, frameSize);
             }
             
             // Extract down frames (second row)
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < columns; i++) {
                 down[i] = spriteSheet.getSubimage(i * frameSize, frameSize, frameSize, frameSize);
             }
             
             // Extract left frames (third row)
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < columns; i++) {
                 left[i] = spriteSheet.getSubimage(i * frameSize, frameSize * 2, frameSize, frameSize);
             }
             
             // Extract right frames (fourth row)
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < columns; i++) {
                 right[i] = spriteSheet.getSubimage(i * frameSize, frameSize * 3, frameSize, frameSize);
             }
             
@@ -92,19 +95,26 @@ public class Player extends Entity {
     public void update() {
         if(keyH.upPressed){
             direction = "up";
+            spriteNum++;
             y -= speed;
         }
         if(keyH.downPressed){
             direction = "down";
+            spriteNum++;
             y += speed;
         }
         if(keyH.leftPressed){
             direction = "left";
+            spriteNum++;
             x -= speed;
         }
         if(keyH.rightPressed){
             direction = "right";
+            spriteNum++;
             x += speed;
+        }
+        if(spriteNum > 3){
+            spriteNum = 0;
         }
     }
     
