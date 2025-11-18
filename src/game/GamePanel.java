@@ -13,7 +13,7 @@ import game.entity.Player;
 
 
 public class GamePanel extends JPanel implements Runnable {
-    final int originalTileSize = 16;
+    public final int originalTileSize = 16;
     final int scale = 3;
 
     public final int tileSize = originalTileSize * scale; // 48x48
