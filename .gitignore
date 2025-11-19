@@ -6,6 +6,13 @@ out/
 ### Eclipse ###
 .apt_generated
 .classpath
+
+# Compiled class files
+*.class
+
+# IDE files
+.idea/
+*.iml
 .factorypath
 .project
 .settings

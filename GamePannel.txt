@@ -24,11 +24,6 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
 
     Player player = new Player(this, keyHandler);
-    MapManager mapManager = new MapManager(this);
-    
-    // Camera system
-    public int cameraX = 0;
-    public int cameraY = 0;
 
     //https://youtu.be/wT9uNGzMEM4?si=Um1deZEkYPkZAq9I&t=188
 
@@ -73,38 +68,13 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void update() {
         player.update();  
-        updateCamera();
-    }
-    
-    public void updateCamera() {
-        // Center camera on player
-        cameraX = player.x - screenWidth / 2;
-        cameraY = player.y - screenHeight / 2;
-        
-        // Prevent camera from going outside map bounds
-        if (mapManager.mapImage != null) {
-            if (cameraX < 0) cameraX = 0;
-            if (cameraY < 0) cameraY = 0;
-            if (cameraX > mapManager.mapWidth - screenWidth) {
-                cameraX = mapManager.mapWidth - screenWidth;
-            }
-            if (cameraY > mapManager.mapHeight - screenHeight) {
-                cameraY = mapManager.mapHeight - screenHeight;
-            }
-        }
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D) g;
-        
-        // Draw the map first (background)
-        mapManager.draw(g2, cameraX, cameraY);
-        
-        // Draw the player with camera offset
-        player.draw(g2, cameraX, cameraY);
-        
+        player.draw(g2);
         g2.dispose();
     }
 }
