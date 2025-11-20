@@ -1,12 +1,12 @@
-package game.entity;
+package entity;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-import game.GamePanel;
-import game.KeyHandler;
+import GamePanel;
+import KeyHandler;
 
 /**
  * Player class represents the main player character in the game.
@@ -34,7 +34,7 @@ public class Player extends Entity {
     public void getPlayerImage() {
         try {
             // Try to load the player image
-            java.net.URL imgUrl = getClass().getResource("/game/res/player/player.png");
+            java.net.URL imgUrl = getClass().getResource("/res/player/player.png");
             if (imgUrl == null) {
                 throw new IOException("Could not find player.png. Tried:" +
                     "\n- /game/res/player/player.png" +

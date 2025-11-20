@@ -1,5 +1,3 @@
-package game;
-
 import javax.imageio.ImageIO;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -16,7 +14,7 @@ public class MapManager {
     
     private void loadMap() {
         try {
-            mapImage = ImageIO.read(getClass().getResource("/game/res/tile_map.png"));
+            mapImage = ImageIO.read(getClass().getResource("/res/tile_map.png"));
             mapWidth = mapImage.getWidth();
             mapHeight = mapImage.getHeight();
             System.out.println("Map loaded: " + mapWidth + "x" + mapHeight);
