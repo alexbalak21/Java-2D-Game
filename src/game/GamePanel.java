@@ -39,6 +39,32 @@ public class GamePanel extends JPanel implements Runnable {
        this.setDoubleBuffered(true);
        this.addKeyListener(keyHandler);
        this.setFocusable(true);
+       
+       // Set initial camera position (map position where player starts)
+       setCameraPosition(600, 430); // Change these values to move the map
+    }
+    
+    // Method to set camera position (where the map should be positioned)
+    public void setCameraPosition(int worldX, int worldY) {
+        // Position camera so player appears at worldX, worldY on the map
+        cameraX = worldX - screenWidth / 2;
+        cameraY = worldY - screenHeight / 2;
+        
+        // Ensure camera stays within map bounds
+        if (mapManager.mapImage != null) {
+            if (cameraX < 0) cameraX = 0;
+            if (cameraY < 0) cameraY = 0;
+            if (cameraX > mapManager.mapWidth - screenWidth) {
+                cameraX = mapManager.mapWidth - screenWidth;
+            }
+            if (cameraY > mapManager.mapHeight - screenHeight) {
+                cameraY = mapManager.mapHeight - screenHeight;
+            }
+        }
+        
+        // Update player's world position to match
+        player.x = worldX;
+        player.y = worldY;
     }
 
 

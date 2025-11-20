@@ -89,8 +89,8 @@ public class Player extends Entity {
     }
 
     void setDefaultValues() {
-        x = 100;
-        y = 100;
+        x = 384;
+        y = 288;
         speed = 2;
         direction = "down";
     }
@@ -129,6 +129,9 @@ public class Player extends Entity {
                 case "left":  x -= speed; break;
                 case "right": x += speed; break;
             }
+
+            // Print position every movement step
+            System.out.println("World Position - X: " + x + ", Y: " + y);
 
             pixelsMoved += speed;
 
