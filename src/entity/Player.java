@@ -27,70 +27,29 @@ public class Player extends Entity {
     private boolean isMoving = false;  // Flag to check if player is currently moving
     private int pixelsMoved = 0;       // Tracks how many pixels moved in current movement
 
-        /**
-     * Loads player sprites from the sprite sheet.
-     * Handles different sprite directions and animation frames.
-     * If loading fails, creates blank placeholder images to prevent crashes.
+    /**
+     * Loads player image.
+     * If loading fails, creates blank placeholder image to prevent crashes.
      */
     public void getPlayerImage() {
         try {
-            // Try to load the sprite sheet using different methods
-            java.net.URL imgUrl = getClass().getResource("/game/res/player/player_sheet.png");
+            // Try to load the player image
+            java.net.URL imgUrl = getClass().getResource("/game/res/player/player.png");
             if (imgUrl == null) {
-                // If not found, try alternative path
-                imgUrl = getClass().getResource("/res/player/player_sheet.png");
+                throw new IOException("Could not find player.png. Tried:" +
+                    "\n- /game/res/player/player.png" +
+                    "\n- /res/player/player.png");
             }
             
-            if (imgUrl == null) {
-                throw new IOException("Could not find player_sheet.png. Tried:" +
-                    "\n- /game/res/player/player_sheet.png" +
-                    "\n- /res/player/player_sheet.png");
-            }
-            
-            BufferedImage spriteSheet = ImageIO.read(imgUrl);
-
-            final int columns = 4;
-            
-            // Use original tile size (16x16 pixels)
-            int frameSize = gp.originalTileSize; // Original tile size
-            
-            // Initialize arrays if they're null
-            if (up == null) up = new BufferedImage[columns];
-            if (down == null) down = new BufferedImage[columns];
-            if (left == null) left = new BufferedImage[columns];
-            if (right == null) right = new BufferedImage[columns];
-            
-            // Extract up frames (first row)
-            for (int i = 0; i < columns; i++) {
-                up[i] = spriteSheet.getSubimage(i * frameSize, 0, frameSize, frameSize);
-            }
-            
-            // Extract down frames (second row)
-            for (int i = 0; i < columns; i++) {
-                down[i] = spriteSheet.getSubimage(i * frameSize, frameSize, frameSize, frameSize);
-            }
-            
-            // Extract left frames (third row)
-            for (int i = 0; i < columns; i++) {
-                left[i] = spriteSheet.getSubimage(i * frameSize, frameSize * 2, frameSize, frameSize);
-            }
-            
-            // Extract right frames (fourth row)
-            for (int i = 0; i < columns; i++) {
-                right[i] = spriteSheet.getSubimage(i * frameSize, frameSize * 3, frameSize, frameSize);
-            }
-            
-            System.out.println("Successfully loaded player sprites!");
+            // Load the single player image
+            BufferedImage image = ImageIO.read(imgUrl);
+            System.out.println("Successfully loaded player image!");
             
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Error loading player sprites: " + e.getMessage());
-            // Initialize empty images to prevent NullPointerException
-            BufferedImage emptyImage = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-            up = new BufferedImage[]{emptyImage, emptyImage, emptyImage};
-            down = new BufferedImage[]{emptyImage, emptyImage, emptyImage};
-            left = new BufferedImage[]{emptyImage, emptyImage, emptyImage};
-            right = new BufferedImage[]{emptyImage, emptyImage, emptyImage};
+            System.err.println("Error loading player image: " + e.getMessage());
+            // Create a blank placeholder image
+            image = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         }
     }
 
@@ -187,13 +146,10 @@ public class Player extends Entity {
      * @param cameraY Camera's Y position for viewport calculation
      */
     public void draw(Graphics2D g2, int cameraX, int cameraY) {
-        BufferedImage image = null;
-        switch (direction) {
-            case "up":    image = up[spriteNum]; break;
-            case "down":  image = down[spriteNum]; break;
-            case "left":  image = left[spriteNum]; break;
-            case "right": image = right[spriteNum]; break;
+        if (image == null) {
+            return; // Don't draw if image failed to load
         }
+        
         // Calculate scaled size using original tile size
         int scaledSize = gp.originalTileSize * scale;
         

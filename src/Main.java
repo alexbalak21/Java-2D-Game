@@ -1,7 +1,3 @@
-// src/game/Main.java
-// Entry point of the game application
-// This is where the program starts execution
-
 package game;
 
 import javax.swing.SwingUtilities;

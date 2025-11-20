@@ -8,10 +8,7 @@ public class Entity {
     public int x, y;
     public int speed;
 
-    public BufferedImage[] up;
-    public BufferedImage[] down;
-    public BufferedImage[] left;
-    public BufferedImage[] right;
+    public BufferedImage image;
 
     public String direction;
     public int spriteCounter = 0;
