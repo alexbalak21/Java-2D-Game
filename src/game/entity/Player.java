@@ -8,20 +8,31 @@ import javax.imageio.ImageIO;
 import game.GamePanel;
 import game.KeyHandler;
 
+/**
+ * Player class represents the main player character in the game.
+ * Handles player movement, animation, and rendering.
+ * Extends the base Entity class for common entity functionality.
+ */
 
 public class Player extends Entity {
-
+    // Reference to the main game panel for accessing game state and settings
     GamePanel gp;
+    // Reference to the key handler for processing player input
     KeyHandler keyH;
 
     // Player scale factor (1 = normal size, 2 = double size, etc.)
     public int scale = 1;
 
-    // Track movement progress
-    private boolean isMoving = false;
-    private int pixelsMoved = 0;
+    // Movement tracking variables
+    private boolean isMoving = false;  // Flag to check if player is currently moving
+    private int pixelsMoved = 0;       // Tracks how many pixels moved in current movement
 
-        public void getPlayerImage() {
+        /**
+     * Loads player sprites from the sprite sheet.
+     * Handles different sprite directions and animation frames.
+     * If loading fails, creates blank placeholder images to prevent crashes.
+     */
+    public void getPlayerImage() {
         try {
             // Try to load the sprite sheet using different methods
             java.net.URL imgUrl = getClass().getResource("/game/res/player/player_sheet.png");
@@ -83,22 +94,35 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * Player constructor.
+     * @param gp Reference to the main GamePanel
+     * @param keyH Reference to the KeyHandler for input processing
+     */
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
 
-        setDefaultValues();
-        getPlayerImage();
+        setDefaultValues();     // Initialize player's starting position and properties
+        getPlayerImage();       // Load player sprites
     }
 
+    /**
+     * Sets the default values for the player character.
+     * Called when the game starts or when player respawns.
+     */
     void setDefaultValues() {
-        x = 384;
-        y = 288;
-        speed = 2;
-        direction = "down";
-        scale = 3; // Set default scale to 2x (you can change this value as needed)
+        x = 384;                // Starting X position (center of a 768x576 window)
+        y = 288;                // Starting Y position
+        speed = 2;              // Movement speed in pixels per frame
+        direction = "down";     // Initial facing direction
+        scale = 3;              // Scale factor for player size (3x original size)
     }
 
+    /**
+     * Updates player state each frame.
+     * Handles movement input, animation, and position updates.
+     */
     public void update() {
         // If not already moving, check for new input
         if (!isMoving) {
@@ -156,7 +180,12 @@ public class Player extends Entity {
     }
 
 
-    //Draw player
+    /**
+     * Draws the player character on screen with camera offset.
+     * @param g2 Graphics2D context for drawing
+     * @param cameraX Camera's X position for viewport calculation
+     * @param cameraY Camera's Y position for viewport calculation
+     */
     public void draw(Graphics2D g2, int cameraX, int cameraY) {
         BufferedImage image = null;
         switch (direction) {
@@ -177,7 +206,11 @@ public class Player extends Entity {
         g2.drawImage(image, screenX, screenY, scaledSize, scaledSize, null);
     }
     
-    // Keep the old draw method for backward compatibility
+    /**
+     * Overloaded draw method for backward compatibility.
+     * Draws the player at screen coordinates (0,0) without camera offset.
+     * @param g2 Graphics2D context for drawing
+     */
     public void draw(Graphics2D g2) {
         draw(g2, 0, 0);
     }
