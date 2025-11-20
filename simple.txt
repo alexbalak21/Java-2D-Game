@@ -1,0 +1,73 @@
+package game;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+
+public class GamePanel extends JPanel {
+
+    private BufferedImage mapImage;
+    private BufferedImage playerImage;
+
+    // Player position in world coordinates
+    private int playerX = 100;
+    private int playerY = 100;
+
+    // Camera offset
+    private int cameraX;
+    private int cameraY;
+
+    public GamePanel() {
+        try {
+            mapImage = ImageIO.read(getClass().getResource("/map.png"));
+            playerImage = ImageIO.read(getClass().getResource("/player.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Keyboard input
+        setFocusable(true);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case java.awt.event.KeyEvent.VK_UP -> playerY -= 16;
+                    case java.awt.event.KeyEvent.VK_DOWN -> playerY += 16;
+                    case java.awt.event.KeyEvent.VK_LEFT -> playerX -= 16;
+                    case java.awt.event.KeyEvent.VK_RIGHT -> playerX += 16;
+                }
+                repaint();
+            }
+        });
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Center camera on player
+        cameraX = playerX - getWidth() / 2;
+        cameraY = playerY - getHeight() / 2;
+
+        // Draw map with camera offset
+        g.drawImage(mapImage, -cameraX, -cameraY, null);
+
+        // Draw player centered
+        g.drawImage(playerImage,
+                playerX - cameraX,
+                playerY - cameraY,
+                null);
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Camera Centered Game");
+        GamePanel panel = new GamePanel();
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(512, 512);
+        frame.add(panel);
+        frame.setVisible(true);
+    }
+}
