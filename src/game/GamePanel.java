@@ -41,7 +41,7 @@ public class GamePanel extends JPanel implements Runnable {
        this.setFocusable(true);
        
        // Set initial camera position (map position where player starts)
-       setCameraPosition(600, 430); // Change these values to move the map
+       setCameraPosition(616, 454); // Change these values to move the map
     }
     
     // Method to set camera position (where the map should be positioned)

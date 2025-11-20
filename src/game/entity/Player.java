@@ -14,6 +14,9 @@ public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
 
+    // Player scale factor (1 = normal size, 2 = double size, etc.)
+    public int scale = 1;
+
     // Track movement progress
     private boolean isMoving = false;
     private int pixelsMoved = 0;
@@ -93,6 +96,7 @@ public class Player extends Entity {
         y = 288;
         speed = 2;
         direction = "down";
+        scale = 3; // Set default scale to 2x (you can change this value as needed)
     }
 
     public void update() {
@@ -161,10 +165,16 @@ public class Player extends Entity {
             case "left":  image = left[spriteNum]; break;
             case "right": image = right[spriteNum]; break;
         }
-        // Draw player with camera offset (screen position = world position - camera position)
-        int screenX = x - cameraX;
-        int screenY = y - cameraY;
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        // Calculate scaled size using original tile size
+        int scaledSize = gp.originalTileSize * scale;
+        
+        // Calculate position to keep player centered when scaled
+        int offset = (scaledSize - gp.originalTileSize) / 2;
+        int screenX = x - cameraX - offset;
+        int screenY = y - cameraY - offset;
+        
+        // Draw player with camera offset and custom scale
+        g2.drawImage(image, screenX, screenY, scaledSize, scaledSize, null);
     }
     
     // Keep the old draw method for backward compatibility
