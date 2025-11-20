@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac542b49-4948-4b6d-92d0-0074a2b3fad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MapManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/MapManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/entity/DebugPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/res/Tile0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Tile0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/res/Tile1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/Tile1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/res/player.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/res/tiled_map.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/res/tiled_map2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/tiled_map.png" afterDir="false" />
-    </list>
+    <list default="true" id="36d7f0bc-7a43-445f-853b-e5c863afd4b3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,59 +17,50 @@
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;alexbalak21&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/alexbalak21/Java-2D-Game.git&quot;,
-    &quot;accountId&quot;: &quot;04fa9a37-cfb3-4386-8a6e-7285ccc68a39&quot;
-  }
-}</component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2yEt8mQa0HcRNwOGgXsqj7WO7UQ" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="35kvFJJOHC0jmANMLI9FjeL0D6S" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;restart&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/DEV/Java-2D-Game&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/DEV/Java-2D-Game/src/Main.java&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "F:/DEV/Java-2D/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "F:/DEV/Java-2D/src/Main.java",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\DEV\Java-2D\src" />
+      <recent name="F:\DEV\Java-2D\src\main" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\DEV\Java-2D\src\main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="Java-2D" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -99,111 +72,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ac542b49-4948-4b6d-92d0-0074a2b3fad5" name="Changes" comment="" />
-      <created>1749411404921</created>
+      <changelist id="36d7f0bc-7a43-445f-853b-e5c863afd4b3" name="Changes" comment="" />
+      <created>1763666782820</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1749411404921</updated>
-      <workItem from="1749411406102" duration="62000" />
-      <workItem from="1749411629177" duration="1787000" />
-      <workItem from="1749413612049" duration="42000" />
-      <workItem from="1749502936300" duration="763000" />
-      <workItem from="1749503794006" duration="235000" />
-      <workItem from="1763664300008" duration="213000" />
-      <workItem from="1763664576090" duration="1235000" />
-      <workItem from="1763665881591" duration="725000" />
-      <workItem from="1763666726081" duration="8000" />
+      <updated>1763666782820</updated>
+      <workItem from="1763666786975" duration="214000" />
+      <workItem from="1763667069665" duration="4829000" />
     </task>
-    <task id="LOCAL-00001" summary="Initial IntelyJ">
-      <option name="closed" value="true" />
-      <created>1749411785760</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1749411785760</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Update">
-      <option name="closed" value="true" />
-      <created>1749412182046</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1749412182046</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Begin JFrame in Main class">
-      <option name="closed" value="true" />
-      <created>1749412606752</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1749412606752</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Testing with classes">
-      <option name="closed" value="true" />
-      <created>1749413297483</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1749413297483</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Learning">
-      <option name="closed" value="true" />
-      <created>1749503567818</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1749503567818</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/restart" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/restart" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial IntelyJ" />
-    <MESSAGE value="Update" />
-    <MESSAGE value="Begin JFrame in Main class" />
-    <MESSAGE value="Testing with classes" />
-    <MESSAGE value="Learning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Learning" />
   </component>
 </project>

@@ -1,3 +1,5 @@
+package main;
+
 import javax.swing.JFrame;
 import java.awt.Dimension;
 
@@ -7,7 +9,7 @@ import java.awt.Dimension;
  * the game panel and window properties.
  */
 public class GameWindow extends JFrame {
-    
+
     /**
      * Constructs the main game window and initializes the game panel.
      * Sets up the window properties and starts the game loop.
@@ -40,7 +42,7 @@ public class GameWindow extends JFrame {
     /**
      * Returns the preferred size of the window.
      * This method is called by pack() to determine the window size.
-     * 
+     *
      * @return Dimension representing the preferred size of the window
      */
     @Override
@@ -49,7 +51,7 @@ public class GameWindow extends JFrame {
         // This ensures proper window sizing based on the GamePanel's preferred size
         return super.getPreferredSize();
     }
-    
+
     public static void main(String[] args) {
         new GameWindow();
     }

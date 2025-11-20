@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
@@ -15,7 +17,7 @@ public class KeyHandler implements KeyListener {
      * @param e the KeyEvent containing information about the key typed
      */
     @Override
-    public void keyTyped(KeyEvent e) {  
+    public void keyTyped(KeyEvent e) {
         // Not used in this implementation
     }
 
@@ -28,19 +30,19 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
 
-        if(keyCode == KeyEvent.VK_UP) {    
+        if(keyCode == KeyEvent.VK_UP) {
             upPressed = true;
         }
-        if(keyCode == KeyEvent.VK_DOWN) {    
+        if(keyCode == KeyEvent.VK_DOWN) {
             downPressed = true;
         }
-        if(keyCode == KeyEvent.VK_LEFT) {    
+        if(keyCode == KeyEvent.VK_LEFT) {
             leftPressed = true;
         }
-        if(keyCode == KeyEvent.VK_RIGHT) {    
+        if(keyCode == KeyEvent.VK_RIGHT) {
             rightPressed = true;
         }
-        
+
     }
 
     /**
@@ -52,19 +54,19 @@ public class KeyHandler implements KeyListener {
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
 
-        if(keyCode == KeyEvent.VK_UP) {    
+        if(keyCode == KeyEvent.VK_UP) {
             upPressed = false;
         }
-        if(keyCode == KeyEvent.VK_DOWN) {    
+        if(keyCode == KeyEvent.VK_DOWN) {
             downPressed = false;
         }
-        if(keyCode == KeyEvent.VK_LEFT) {    
+        if(keyCode == KeyEvent.VK_LEFT) {
             leftPressed = false;
         }
-        if(keyCode == KeyEvent.VK_RIGHT) {    
+        if(keyCode == KeyEvent.VK_RIGHT) {
             rightPressed = false;
         }
     }
 
-    
+
 }
