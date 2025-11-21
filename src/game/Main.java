@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class Main {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Tile-based Camera Game");
+        JFrame frame = new JFrame("Java 2D Game");
         GamePanel panel = new GamePanel();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
