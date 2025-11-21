@@ -4,8 +4,8 @@ public class Camera {
     private int x, y;
 
     public void centerOn(Player player, int screenWidth, int screenHeight) {
-        int playerPixelX = player.getTileX() * 16;
-        int playerPixelY = player.getTileY() * 16;
+        int playerPixelX = player.getTileX() * Constants.TILE_SIZE * Constants.SCALE;
+        int playerPixelY = player.getTileY() * Constants.TILE_SIZE * Constants.SCALE;
 
         x = playerPixelX - screenWidth / 2;
         y = playerPixelY - screenHeight / 2;
