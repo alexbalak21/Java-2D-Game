@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8466f181-8f42-4a5b-81f7-a3900835909a" name="Changes" comment="Scaled">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +80,8 @@
       <updated>1763673810701</updated>
       <workItem from="1763673816462" duration="504000" />
       <workItem from="1763720463305" duration="2471000" />
+      <workItem from="1763757190877" duration="187000" />
+      <workItem from="1763844529192" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="Working Simple game">
       <option name="closed" value="true" />
